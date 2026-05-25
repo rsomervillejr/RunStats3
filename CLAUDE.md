@@ -40,6 +40,24 @@ Expected future layers:
 - **Services** — data persistence (CoreData or SwiftData), location/GPS
 - **Views** — run list, run detail, statistics/charts
 
+## Spec Kit Workflow
+
+This project uses **Spec Kit** (`.specify/`) for specification-driven development. Features go through: specify → plan → tasks → implement.
+
+Skills available via the `Skill` tool:
+
+| Skill | Purpose |
+|---|---|
+| `speckit-specify` | Generate spec from feature description |
+| `speckit-plan` | Generate implementation plan from spec |
+| `speckit-tasks` | Break plan into discrete tasks |
+| `speckit-implement` | Implement tasks from the task list |
+| `speckit-clarify` | Clarify ambiguities before implementation |
+| `speckit-analyze` | Analyze existing code/specs |
+| `speckit-checklist` | Generate review checklist |
+
+Git branching uses sequential numbering (`001-feature-name`). Feature branches are created automatically before `specify`. Constitution template is at `.specify/memory/constitution.md` — not yet filled in for this project.
+
 ## Related Projects
 
 - `~/Documents/RunStats/` — original Garmin TCX parser (Python/pandas)
