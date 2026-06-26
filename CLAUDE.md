@@ -8,10 +8,10 @@ iOS/iPadOS SwiftUI app for tracking running statistics. Third iteration of the R
 
 ## Tech Stack
 
-- **Language:** Swift
+- **Language:** Swift 5.0
 - **UI:** SwiftUI (declarative, MVVM-ready)
 - **Build:** Xcode (open `RunStats3.xcodeproj`)
-- **Deployment Target:** iOS 26.5
+- **Deployment Target:** iOS/iPadOS 26.5 (`TARGETED_DEVICE_FAMILY = "1,2"`)
 - **Bundle ID:** `com.runstats.RunStats3`
 
 ## Build & Run
@@ -42,21 +42,39 @@ Expected future layers:
 
 ## Spec Kit Workflow
 
-This project uses **Spec Kit** (`.specify/`) for specification-driven development. Features go through: specify → plan → tasks → implement.
+This project uses **Spec Kit** (`.specify/`) for specification-driven development. Features follow the full cycle: `specify → clarify → plan → tasks → implement`.
 
 Skills available via the `Skill` tool:
 
 | Skill | Purpose |
 |---|---|
 | `speckit-specify` | Generate spec from feature description |
+| `speckit-clarify` | Clarify ambiguities before planning |
 | `speckit-plan` | Generate implementation plan from spec |
 | `speckit-tasks` | Break plan into discrete tasks |
 | `speckit-implement` | Implement tasks from the task list |
-| `speckit-clarify` | Clarify ambiguities before implementation |
 | `speckit-analyze` | Analyze existing code/specs |
 | `speckit-checklist` | Generate review checklist |
+| `speckit-constitution` | Manage project constitution |
+| `speckit-taskstoissues` | Sync tasks to GitHub issues |
+| `speckit-git-feature` | Create numbered feature branch |
+| `speckit-git-commit` | Commit with Spec Kit conventions |
+| `speckit-git-initialize` | Initialize repo with Spec Kit structure |
+| `speckit-git-remote` | Configure remote |
+| `speckit-git-validate` | Validate branch/commit state |
 
-Git branching uses sequential numbering (`001-feature-name`). Feature branches are created automatically before `specify`. Constitution template is at `.specify/memory/constitution.md` — not yet filled in for this project.
+Git branching uses sequential numbering (`001-feature-name`). Feature branches are created automatically before `specify`. Constitution is at `.specify/memory/constitution.md` — **ratified v1.0.0 (2026-05-25)**.
+
+## Constitution Rules (Non-Negotiable)
+
+Ratified v1.0.0. Full text at `.specify/memory/constitution.md`.
+
+- **MVVM hard boundary**: Views own no business logic; ViewModels own no layout; Models are structs unless identity requires class
+- **No force-unwrap** (`!`) except in test code and `@IBOutlet`/`@IBAction`
+- **TDD required**: write failing XCTest → implement → refactor; no feature is done without passing ViewModel/Service tests
+- **Native UX**: use system defaults (`Font.body`, `.primary`, `Color.accentColor`, `NavigationStack`); HIG deviations must be justified in the spec
+- **No main-thread I/O**: async all fetches; SwiftData/CoreData fetches must be paginated
+- **PRs to `main`**: all XCTest targets must pass, no unresolved TODOs in scope; PR description must include a Constitution Check section
 
 ## Related Projects
 
