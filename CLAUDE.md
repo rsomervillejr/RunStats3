@@ -80,3 +80,10 @@ Ratified v1.0.0. Full text at `.specify/memory/constitution.md`.
 
 - `~/Documents/RunStats/` — original Garmin TCX parser (Python/pandas)
 - `~/Documents/RunStats2/` — Flask REST API for running stats (Python/Flask/SQLAlchemy)
+
+## Active Technologies
+- Swift 5.0 + SwiftUI (UI), Swift Charts (bar chart), SwiftData (persistence) — all system frameworks, no third-party packages (001-run-log-mvp)
+- SwiftData, local device only (001-run-log-mvp)
+
+## Recent Changes
+- 001-run-log-mvp: Added Swift 5.0 + SwiftUI (UI), Swift Charts (bar chart), SwiftData (persistence) — all system frameworks, no third-party packages
